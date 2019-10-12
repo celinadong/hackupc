@@ -106,7 +106,7 @@ app.post('/add_person', function (req, res) {
                             }
                         }
                     } 
-                var param = {user: compatible, startDate: startDate, endDate: endDate};
+                var param = {users: compatible, startDate: startDate, endDate: endDate};
                 res.json(param);
                 db.close();
             });
