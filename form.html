@@ -21,6 +21,8 @@
       <input type="Text" name="age" style="width:300px;" id="age"/><br/><br/>
       Language
       <input type="Text" name="language" style="width:300px;" id="language" /><br /><br/>
+      Home
+      <input type="Text" name="home" style="width:300px;" id="home"/><br /><br/>
       Choice of Destination
       <input type="Text" name="destination" style="width:300px;" id="destination" /><br /><br/>
       Date
@@ -61,13 +63,14 @@
                 var name = document.getElementById("name").value;
                 var age = document.getElementById("age").value;
                 var language = document.getElementById("language").value;
+                var home = document.getElementById("home").value;
                 var destination = document.getElementById("destination").value;
                 var date = document.getElementById("date").value;
                 var availability = document.getElementById("availability").value;
                 var form_id = document.getElementById('form_id').value;
 
                 //construct parameter object according to API Documentation.
-                var parameters = { Name: name, Age: age, Language: language, Destination: destination, Date_: date, Availability: availability, Form_Id: form_id };
+                var parameters = { Name: name, Age: age, Language: language, Home: home, Destination: destination, Date_: date, Availability: availability, Form_Id: form_id };
                 alert(JSON.stringify(parameters)); //debugging message
 
                 callWebAPI(url, parameters, callBack); //call the API
