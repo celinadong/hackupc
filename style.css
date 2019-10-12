@@ -33,14 +33,14 @@ p {
   float: left;
   margin-left: 250px;
   width: 50%;
-  height: 45%;
+  height: 40%;
   padding: 10px;
 }
 
 .left_btn {
   position: absolute;
-  top: 550px;
-  left: 370px;
+  top: 600px;
+  left: 380px;
   padding: 10px 15px;
   font-size: 18px;
   font-family: 'Verdana';
@@ -66,14 +66,14 @@ p {
   float: right;
   margin-right: 250px;
   width: 50%;
-  height: 45%;
+  height: 40%;
   padding: 10px;
 }
 
 .right_btn {
   position: absolute;
-  top: 550px;
-  right: 380px;
+  top: 600px;
+  right: 390px;
   padding: 10px 15px;
   font-size: 18px;
   font-family: 'Verdana';
@@ -93,6 +93,25 @@ p {
   content: "";
   display: table;
   clear: both;
+}
+
+.tech_info {
+  position: absolute;
+  left: 630px;
+  bottom: 20px;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-family: 'Verdana';
+  color: black;
+  background-color: #5ee696;
+  border: none;
+  border-radius: 10px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.tech_info:hover {
+  opacity: 0.8;
 }
 
 
