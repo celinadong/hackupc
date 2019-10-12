@@ -57,24 +57,5 @@ function browseRoutes(originCountry, origin, destination, outDate, inDate) {
           document.write('<tr align="center"><td>' + "<b>Inbound</b><br><br>Date and Time<br><br>Airline" + '</td><td>' + destination + " - " + origin + "<br><br>" + inbound_dt + "<br><br>" + in_airline + '</td></tr>');
           document.write('</table></center></font>');
 
-
-        //   document.write("Flight " + origin + "-" + destination + "<br>");
-        //   document.write("Price " + lowest_price + "€<br>");
-        //   document.write("Direct? " + direct + "<br>");
-        //   document.write("Outbound " + origin + "-" + destination + ":<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
-        //   document.write("Date and Time " + outbound_dt + "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
-        //   for (i = 0; i < data["Carriers"].length; i++) {
-        //       if (data["Carriers"][i].CarrierId == out_id) {
-        //           document.write("Airline " + data["Carriers"][i].Name + "<br>");
-        //       }
-        //   }
-        //   document.write("Inbound " + destination + "-" + origin + ":<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
-        //   document.write("Date and Time " + inbound_dt + "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
-        //   for (i = 0; i < data["Carriers"].length; i++) {
-        //       if (data["Carriers"][i].CarrierId == in_id) {
-        //           document.write("Airline " + data["Carriers"][i].Name + "<br>");
-        //       }
-        //   }
-
       }).catch(error => console.error('Error:', error));
 }

@@ -1,57 +1,63 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HackUPC Cool Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Through my eyes</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Satisfy&display=swap" rel="stylesheet"/>
+    <script src="script.js"></script>
   </head>
 
-  <link rel="stylesheet" href="/style.css" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Raleway|Satisfy&display=swap"
-    rel="stylesheet"
-  />
-  <script src="script.js"></script>
-
   <body>
-    <h1>Sign up for this event!</h1>
+    <h1>Sign up now!</h1>
     <p>
       Click to open a popup-embedded typeform which you can fill in! We will
       pair you up with your soulmate.
     </p>
 
-    <div class="popup-buttons">
-      <button id="audio-button" class="audio-form">Audio</button>
-      <button id="text-button" class="text-form">Text</button>
-    </div>
-
     <p>
-      Sign up here to be paired up with someone to travel with!
+      Click on the buttons below to sign up and be paired up with someone to travel with!
     </p>
 
-    <img
-      src="https://cdn0.iconfinder.com/data/icons/people-lifestyle/100/Blind-01-512.png"
-      class="disabled"
-      width="200"
-      height="200"
-      align="left"
-    />
-    <img
-      src="https://img.pngio.com/happy-man-stick-figure-stickman-success-icon-strong-man-stick-figure-png-400_512.png"
-      class="helper"
-      width="150"
-      height="200"
-      align="left"
-    />
+    <div class="row">
+      <div class="left">
+        <div class="column_left" style="background-color:#aaa;">
+          <h2>Vision-Impaired</h2>
+          <p>
+            Have you ever wanted to travel the world and meet new people, but felt like you couldn't because you're visually impaired?
+            Then this is the perfect chance for you! We'll pair you up with a fully sighted person of a similar age, same travel destination
+            and matching availability, and look up the cheapest flight for you! The person you're matched with will be a volunteer willing to
+            describe the sights to you and support you if needed!
+            So, think no more and sign up now! 
+          </p>
+        </div>
+        <button id="left_btn" class="left_btn">Audio</button>
+      </div>
+      <div class="right">
+        <div class="column_right" style="background-color:#aaa;">
+          <h2>Fully Sighted</h2>
+          <p>Are you bored of travelling with your friends? Do you feel like giving back to the community? Join this program and volunteer
+             to help out the visually impaired people who don't get the chance to travel as much as you! You'll be paired to someone with the
+             same travel destination as you and a similar age so you can bond. We'll pick the cheapest flight according to your specifications.
+             Sign up and change someone's life for the better!
+          </p>
+        </div>
+        <button id="right_btn" class="right_btn">Text</button>
+      </div>
+    </div>
 
-    <button onclick="callTypeForm()">
-      submit
-    </button>
+    <!-- <div class="popup-buttons">
+      <button id="audio-button" class="audio-form">Audio</button>
+      <button id="text-button" class="text-form">Text</button>
+    </div> -->
 
-    <script
-      src="https://embed.typeform.com/embed.js"
-      type="text/javascript"
-    ></script>
+
+    <img src="https://cdn0.iconfinder.com/data/icons/people-lifestyle/100/Blind-01-512.png" class="disabled" width="200" height="200" align="left">
+    <img src="https://img.pngio.com/happy-man-stick-figure-stickman-success-icon-strong-man-stick-figure-png-400_512.png" class="helper" width="150" height="200" align="left">
+
+
+    <script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
     <script type="text/javascript">
       let popup_text, popup_audio;
       window.addEventListener("DOMContentLoaded", function() {
@@ -86,6 +92,8 @@
         .addEventListener("click", function() {
           popup_audio.open();
         });
+
     </script>
   </body>
+
 </html>
