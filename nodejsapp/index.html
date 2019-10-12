@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            hackupc shit
+        </title>
+    </head>
+
+    <body>
+        <form method="post" action="/names">
+            <label>What's your name?</label><br>
+            <input type="text" name="firstName" placeholder="First Name" required><br>
+            <label>What's your last name?</label><br>
+            <input type="text" name="lastName" placeholder="Last Name" required><br>
+            <label>How old are you?</label><br>
+            <input type="text" name="age" placeholder="Age" required><br>
+            <label>Where are you from?</label><br>
+            <input type="text" name="nationality" placeholder="Nationality" required><br>
+            <label>What is your language of preference?</label><br>
+            <input type="text" name="language" placeholder="Language" required><br>
+            <label>When are you available?</label><br>
+            <input type="text" name="input" placeholder="YYYY-MM-DD" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"><br>
+            <label>Where would you like to travel to?</label><br>
+            <input type="text" name="destination" placeholder="Destination" required><br>
+            <input type="submit" value="Add Name">
+        </form>
+    </body>
+</html> -->
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title> Signup Form</title> 
+		
+		
+<link rel="stylesheet"
+href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity= 
+"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous">	 
+		
+<link rel="stylesheet" type="text/css" href="style.css"> 
+		
+</head> 
+<body> 
+	
+	<br> 
+	<br> 
+	<br> 
+	<div class="container" > 
+		<div class="row"> 
+		<div class="col-md-3"> 
+					
+		</div> 
+				
+		<div class="col-md-6 main"> 
+					
+			<form action="/sign_up" method="post"> 
+					
+			<h1> Signup form </h1> 
+            
+            <label>What's your name?</label>
+			<input class="box" type="text" name="name" id="name"
+			placeholder="Name" required /><br> 
+            <label>What's your surname?</label>
+			<input class="box" type="surname" name="surname" id="surname"
+			placeholder="Surname " required /><br> 
+			<label>How old are you?</label>				
+			<input class="box" type="age" name="age"
+			id="age" placeholder="Age " required/><br> 
+			<label>Where are you from?</label>				
+			<input class="box" type="text" name="nationality" id="nationality"
+			placeholder="Nationality " required/><br> 
+		    <br> 
+			<input type="submit" id="submitDetails"
+			name="submitDetails" value="Submit" /><br> 
+					
+			</form> 
+					
+		</div> 
+							
+		<div class="col-md-3"> 
+		</div> 
+				
+	</div> 
+	</div> 
+</body> 
+</html>	 
+
