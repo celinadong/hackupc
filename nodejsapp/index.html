@@ -1,33 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            hackupc project
-        </title>
-    </head>
-
-    <body>
-        <form method="post" action="/names">
-            <label>What's your name?</label><br>
-            <input type="text" name="firstName" placeholder="First Name" required><br>
-            <label>What's your last name?</label><br>
-            <input type="text" name="lastName" placeholder="Last Name" required><br>
-            <label>How old are you?</label><br>
-            <input type="text" name="age" placeholder="Age" required><br>
-            <label>Where are you from?</label><br>
-            <input type="text" name="nationality" placeholder="Nationality" required><br>
-            <label>What is your language of preference?</label><br>
-            <input type="text" name="language" placeholder="Language" required><br>
-            <label>When are you available?</label><br>
-            <input type="text" name="input" placeholder="YYYY-MM-DD" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"><br>
-            <label>Where would you like to travel to?</label><br>
-            <input type="text" name="destination" placeholder="Destination" required><br>
-            <input type="submit" value="Add Name">
-        </form>
-    </body>
-</html>
- -->
-
 <!DOCTYPE html> 
 <html> 
 <head> 
@@ -49,22 +19,26 @@
 				
 		<div class="col-md-6 main"> 
 					
-			<form action="/sign_up" method="post"> 
+			<form action="/sign_up" method="post" id="frm1"> 
 					
 			<h1> Signup form </h1> 
             
-            <label>What's your name?</label>
 			<input class="box" type="text" name="name" id="name"
-			placeholder="Name" required /><br> 
-            <label>What's your surname?</label>
-			<input class="box" type="surname" name="surname" id="surname"
-			placeholder="Surname " required /><br> 
-			<label>How old are you?</label>				
-			<input class="box" type="age" name="age"
+			placeholder="Name" required /><br> 		
+			<input class="box" type="text" name="age"
 			id="age" placeholder="Age " required/><br> 
-			<label>Where are you from?</label>				
-			<input class="box" type="text" name="nationality" id="nationality"
-			placeholder="Nationality " required/><br> 
+			<input class="box" type="text" name="language" id="language"
+			placeholder="Language" required /><br> 				
+			<input class="box" type="text" name="home" id="home"
+			placeholder="Home Country" required/><br>
+			<input class="box" type="text" name="destination" id="destination"
+			placeholder="Choice of Destination" required/><br> 
+			<input class="box" type="text" name="date" id="date"
+			placeholder="Available from (yyyymmdd)" required/><br> 
+			<input class="box" type="text" name="availability" id="availability"
+			placeholder="Number of Days Available" required/><br> 
+			<input class="box" type="text" name="form_id" id="form_id"
+			placeholder="Form ID" required/><br> 
 		    <br> 
 			<input type="submit" id="submitDetails"
 			name="submitDetails" value="Submit" /><br> 
@@ -78,6 +52,46 @@
 				
 	</div> 
 	</div> 
+
+	<!-- <form id="frm1">
+			Name
+			<input type="Text" name="name" style="width:300px;" id="name"/><br/><br/>
+			Age
+			<input type="Text" name="age" style="width:300px;" id="age"/><br/><br/>
+			Language
+			<input type="Text" name="language" style="width:300px;" id="language" /><br /><br/>
+			Home
+			<input type="Text" name="home" style="width:300px;" id="home"/><br /><br/>
+			Choice of Destination
+			<input type="Text" name="destination" style="width:300px;" id="destination" /><br /><br/>
+			Date
+			<input type="Text" name="date" style="width:300px;" id="date"/><br /><br/>
+			Days Available
+			<input type="Text" name="availability" style="width:300px;" id="availability"/><br /><br/>
+			Form ID
+			<input type="Text" name="form_id" style="width:300px;" id="form_id"/><br /><br/>
+		  </form>
+	  
+		  <button type="submit" onclick="javascript:callAddPerson('/add_person')" name="btnSubmit">
+			Submit
+		  </button> -->
 </body> 
 </html>	 
 
+
+<!-- 
+<label>What's your name?</label>
+<input class="box" type="text" name="name" id="name"
+placeholder="Name" required /><br> 
+<label>What's your surname?</label>
+<input class="box" type="surname" name="surname" id="surname"
+placeholder="Surname " required /><br> 
+<label>How old are you?</label>				
+<input class="box" type="age" name="age"
+id="age" placeholder="Age " required/><br> 
+<label>Where are you from?</label>				
+<input class="box" type="text" name="nationality" id="nationality"
+placeholder="Nationality " required/><br> 
+<br> 
+<input type="submit" id="submitDetails"
+name="submitDetails" value="Submit" /><br>  -->

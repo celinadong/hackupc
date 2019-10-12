@@ -30,7 +30,7 @@ app.post('/sign_up', function(req,res){
 		"age": age, 
 		"nationality": nationality 
 	} 
-db.collection('details').insertOne(data,function(err, collection){ 
+	db.collection('details').insertOne(data,function(err, collection){ 
 		if (err) throw err; 
 		console.log("Record inserted Successfully"); 
 			
