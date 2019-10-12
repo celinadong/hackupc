@@ -70,6 +70,7 @@ app.post('/add_person', function (req, res) {
 
             var age = result.Age;
             var language = result.Language;
+            var home = result.Home;
             var destination = result.Destination;
             var date = result.Date_;
             var availability = result.Availability;
@@ -106,7 +107,7 @@ app.post('/add_person', function (req, res) {
                             }
                         }
                     } 
-                var param = {users: compatible, startDate: startDate, endDate: endDate};
+                var param = {users: compatible, home: home, destination: destination, startDate: startDate, endDate: endDate};
                 res.json(param);
                 db.close();
             });
