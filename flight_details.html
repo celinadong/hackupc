@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>skyscanner</title>
-        <link href="style.css" rel="stylesheet" />
-        <script src="server.js"></script>
+        <!-- <link href="style.css" rel="stylesheet" /> -->
+        <script src="cheapflights.js"></script>
     </head>
     
     <body>
@@ -13,9 +13,9 @@
         <script>
             var originCountry = "ES";
             var origin = "BCN";
-            var destination = "EDI";
-            var outDate = "2019-10-15";
-            var inDate = "2019-10-18";
+            var destination = dest;
+            var outDate = start;
+            var inDate = end;
             document.getElementById("search").innerHTML = browseRoutes(originCountry, origin, destination, outDate, inDate);
         </script>
     </body>
