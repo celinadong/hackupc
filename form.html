@@ -1,97 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Hello!</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	 
-    <link rel="stylesheet" type="text/css" href="style_form.css"> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title> Signup Form</title> 	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	 
+	<link rel="stylesheet" type="text/css" href="style_form.css"> 
+</head> 
 
-    <!-- import the webpage's stylesheet -->
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-  </head>
-  <body>
-    <h1>
-      Information Form
-    </h1>
-    <br />
+<body> 
+	<br> 
+	<br> 
+	<br> 
+	<div class="container" > 
+		<div class="row"> 
+		<div class="col-md-3"> 
+					
+		</div> 
+				
+		<div class="col-md-6 main"> 
+					
+			<form action="/match_people" method="post" id="frm1"> 
+					
+			<h1> Signup form </h1> 
+            
+			<input class="box" type="text" name="name" id="name"
+			placeholder="Name" required /><br> 		
+			<input class="box" type="text" name="age"
+			id="age" placeholder="Age " required/><br> 
+			<input class="box" type="text" name="language" id="language"
+			placeholder="Language" required /><br> 				
+			<input class="box" type="text" name="home" id="home"
+			placeholder="Home Country" required/><br>
+			<input class="box" type="text" name="destination" id="destination"
+			placeholder="Choice of Destination" required/><br> 
+			<input class="box" type="text" name="date" id="date"
+			placeholder="Available from (yyyymmdd)" required/><br> 
+			<input class="box" type="text" name="availability" id="availability"
+			placeholder="Number of Days Available" required/><br> 
+			<input class="box" type="text" name="form_id" id="form_id"
+			placeholder="Form ID" required/><br> 
+		    <br> 
+			<!-- <input type="submit" id="submitDetails"
+			name="submitDetails" value="Submit" /><br>  -->
+			<button type="submit" onclick="javascript:callAddPerson('/add_person')" name="btnSubmit">
+				Submit
+			</button>
+					
+			</form> 
+					
+		</div> 
+							
+		<div class="col-md-3"> 
+		</div> 
+				
+	</div> 
+	</div> 
 
-    
+	<script>
+		function getVars(resp) {
+			var home = resp.home;
+			var dest = resp.destination;
+			var start = resp.startDate;
+			var end = resp.endDate;
+		}
+		function callWebAPI(url, parameters, func) {
+			return fetch(url, {
+				method: "POST",
+				body: JSON.stringify(parameters),
+				headers: {
+				"Content-Type": "application/json"
+				}
+			})
+				.then(res => res.json())
+				.then(response => func(JSON.stringify(response)))
+				.catch(error => console.error("Error:", error));
+			}
+		function callBack(resp) {
+		  console.log(resp);
+		}
+		function callAddPerson(url) {
+			var name = document.getElementById("name").value;
+			var age = document.getElementById("age").value;
+			var language = document.getElementById("language").value;
+			var home = document.getElementById("home").value;
+			var destination = document.getElementById("destination").value;
+			var date = document.getElementById("date").value;
+			var availability = document.getElementById("availability").value;
+			var form_id = document.getElementById('form_id').value;
+			//construct parameter object according to API Documentation.
+			var parameters = { Name: name, Age: age, Language: language, Home: home, Destination: destination, Date_: date, Availability: availability, Form_Id: form_id };
+			alert(JSON.stringify(parameters)); //debugging message
+			callWebAPI(url, parameters, callBack); //call the API
+		}
+		function callMatchPerson(urlpath) {
+			// name required to find his details and compare to others in database
+			var name = document.getElementById('name').value;
+			var url = "https://celina.localtunnel.me" + urlpath;
+			var parameters = { Name: name };    
+			alert(JSON.stringify(parameters)); //debugging message
+			callWebAPI(url, parameters, getVars); //call the API 
+		}
+	</script>
 
-    <form id="frm1">
-      Name
-      <input type="Text" name="name" style="width:300px;" id="name"/><br/><br/>
-      Age
-      <input type="Text" name="age" style="width:300px;" id="age"/><br/><br/>
-      Language
-      <input type="Text" name="language" style="width:300px;" id="language" /><br /><br/>
-      Home
-      <input type="Text" name="home" style="width:300px;" id="home"/><br /><br/>
-      Choice of Destination
-      <input type="Text" name="destination" style="width:300px;" id="destination" /><br /><br/>
-      Date
-      <input type="Text" name="date" style="width:300px;" id="date"/><br /><br/>
-      Days Available
-      <input type="Text" name="availability" style="width:300px;" id="availability"/><br /><br/>
-      Form ID
-      <input type="Text" name="form_id" style="width:300px;" id="form_id"/><br /><br/>
-    </form>
+</body> 
+</html>	 
 
-    <button type="submit" onclick="javascript:callAddPerson('/add_person')" name="btnSubmit">
-      Submit
-    </button>
 
-    <button type="submit" onclick="callMatchPerson('/match_people')" name="btnMatchPerson">
-        Click to Find Match
-    </button>
+<!-- <form id="frm1">
+		Name
+		<input type="Text" name="name" style="width:300px;" id="name"/><br/><br/>
+		Age
+		<input type="Text" name="age" style="width:300px;" id="age"/><br/><br/>
+		Language
+		<input type="Text" name="language" style="width:300px;" id="language" /><br /><br/>
+		Home
+		<input type="Text" name="home" style="width:300px;" id="home"/><br /><br/>
+		Choice of Destination
+		<input type="Text" name="destination" style="width:300px;" id="destination" /><br /><br/>
+		Date
+		<input type="Text" name="date" style="width:300px;" id="date"/><br /><br/>
+		Days Available
+		<input type="Text" name="availability" style="width:300px;" id="availability"/><br /><br/>
+		Form ID
+		<input type="Text" name="form_id" style="width:300px;" id="form_id"/><br /><br/>
+		</form>
+	
+		<button type="submit" onclick="javascript:callAddPerson('/add_person')" name="btnSubmit">
+		Submit
+		</button> -->
 
-    <script>
-            function getVars(resp) {
-                var home = resp.home;
-                var dest = resp.destination;
-                var start = resp.startDate;
-                var end = resp.endDate;
-            }
-
-            function callWebAPI(url, parameters, func) {
-                return fetch(url, {
-                    method: "POST",
-                    body: JSON.stringify(parameters),
-                    headers: {
-                    "Content-Type": "application/json"
-                    }
-                })
-                    .then(res => res.json())
-                    .then(response => func(JSON.stringify(response)))
-                    .catch(error => console.error("Error:", error));
-                }
-            function callBack(resp) {
-              console.log(resp);
-            }
-            function callAddPerson(url) {
-                var name = document.getElementById("name").value;
-                var age = document.getElementById("age").value;
-                var language = document.getElementById("language").value;
-                var home = document.getElementById("home").value;
-                var destination = document.getElementById("destination").value;
-                var date = document.getElementById("date").value;
-                var availability = document.getElementById("availability").value;
-                var form_id = document.getElementById('form_id').value;
-                //construct parameter object according to API Documentation.
-                var parameters = { Name: name, Age: age, Language: language, Home: home, Destination: destination, Date_: date, Availability: availability, Form_Id: form_id };
-                alert(JSON.stringify(parameters)); //debugging message
-                callWebAPI(url, parameters, callBack); //call the API
-            }
-            function callMatchPerson(url) {
-                // name required to find his details and compare to others in database
-                var name = document.getElementById('name').value;
-                
-                var parameters = { Name: name };    
-                alert(JSON.stringify(parameters)); //debugging message
-                callWebAPI(url, parameters, getVars); //call the API 
-            }
-    </script>
-  </body>
-</html>
+<!-- 
+<label>What's your name?</label>
+<input class="box" type="text" name="name" id="name"
+placeholder="Name" required /><br> 
+<label>What's your surname?</label>
+<input class="box" type="surname" name="surname" id="surname"
+placeholder="Surname " required /><br> 
+<label>How old are you?</label>				
+<input class="box" type="age" name="age"
+id="age" placeholder="Age " required/><br> 
+<label>Where are you from?</label>				
+<input class="box" type="text" name="nationality" id="nationality"
+placeholder="Nationality " required/><br> 
+<br> 
+<input type="submit" id="submitDetails"
+name="submitDetails" value="Submit" /><br>  -->
