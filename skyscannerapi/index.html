@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>skyscanner sssshit</title>
+        <link href="style.css" rel="stylesheet" />
+        <script src="server.js"></script>
+    </head>
+    
+    <body>
+        <p>Cheapest flight found is</p>
+        <p id="search"></p>
+        <script>
+            var originCountry = "ES";
+            var origin = "BCN";
+            var destination = "EDI";
+            var outDate = "2019-10-15";
+            var inDate = "2019-10-18";
+            document.getElementById("search").innerHTML = browseRoutes(originCountry, origin, destination, outDate, inDate);
+        </script>
+    </body>
+</html>
