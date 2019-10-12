@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HackUPC Cool Project</title>
+  </head>
+
+  <link rel="stylesheet" href="/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Raleway|Satisfy&display=swap"
+    rel="stylesheet"
+  />
+  <script src="script.js"></script>
+
+  <body>
+    <h1>Sign up for this event!</h1>
+    <p>
+      Click to open a popup-embedded typeform which you can fill in! We will
+      pair you up with your soulmate.
+    </p>
+
+    <div class="popup-buttons">
+      <button id="audio-button" class="audio-form">Audio</button>
+      <button id="text-button" class="text-form">Text</button>
+    </div>
+
+    <p>
+      Sign up here to be paired up with someone to travel with!
+    </p>
+
+    <img
+      src="https://cdn0.iconfinder.com/data/icons/people-lifestyle/100/Blind-01-512.png"
+      class="disabled"
+      width="200"
+      height="200"
+      align="left"
+    />
+    <img
+      src="https://img.pngio.com/happy-man-stick-figure-stickman-success-icon-strong-man-stick-figure-png-400_512.png"
+      class="helper"
+      width="150"
+      height="200"
+      align="left"
+    />
+
+    <button onclick="callTypeForm()">
+      submit
+    </button>
+
+    <script
+      src="https://embed.typeform.com/embed.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      let popup_text, popup_audio;
+      window.addEventListener("DOMContentLoaded", function() {
+        // When instantiating a popup embed, you must provide the URL
+        // of your typeform and your desired embed settings. If you don't
+        // provide any settings, a default 'popup' embed is instantiated.
+        popup_text = window.typeformEmbed.makePopup(
+          "https://muyaohu.typeform.com/to/NTney3",
+          {
+            hideHeaders: true,
+            hideFooter: true
+          }
+        );
+
+        popup_audio = window.typeformEmbed.makePopup(
+          "https://muyaohu.typeform.com/to/NTney3",
+          {
+            hideHeaders: true,
+            hideFooter: true
+          }
+        );
+      });
+      // Now we bind our buttons to open our previously instantiated
+      // embedded typeforms when clicked
+      document
+        .getElementById("text-button")
+        .addEventListener("click", function() {
+          popup_text.open();
+        });
+      document
+        .getElementById("audio-button")
+        .addEventListener("click", function() {
+          popup_audio.open();
+        });
+    </script>
+  </body>
+</html>
