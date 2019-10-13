@@ -1,8 +1,9 @@
 var express = require("express");
 var bodyParser = require('body-parser');
-var path = require('path');
+var cors = require('cors');
 
 var app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -15,15 +16,15 @@ app.options("/*", function (req, res, next) {
     res.sendStatus(200);
 });
 
-app.get('*', function (req, res) {
+/*app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '/form.html'))
-})
+})*/
 
 app.post('/add_person', function (req, res) {
     console.log("Add Person request received");
     console.log("Adding name: " + req.body.Name);
   
-    var url = "mongodb://localhost:27017/";
+    var url = "mongodb://127.0.0.1:27017/";
 
     MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
       if (err) throw err;
@@ -51,7 +52,7 @@ app.post('/add_person', function (req, res) {
   app.post('/match_people', function(req, res) {
       console.log("Matching people of similar ages, dates of travel and same language preferences, same choice of destination");
       console.log("Entered name is " + req.body.Name);
-      var url = "mongodb://localhost:27017/";
+      var url = "mongodb://127.0.0.1:27017/";
 
       MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
         if (err) throw err;
@@ -72,7 +73,7 @@ app.post('/add_person', function (req, res) {
             var language = result.Language;
             var home = result.Home;
             var destination = result.Destination;
-            var date = result.Date_;
+            var date = result.Date_.split("-")[0];
             var availability = result.Availability;
             var form_id = result.Form_Id;
             
@@ -83,12 +84,16 @@ app.post('/add_person', function (req, res) {
 
                 // the normal form was filled in
                 for (var i = 0; i < people_collection.length; i++) {
+                        console.log('date ' + date);
                         var consider = people_collection[i];
                         var x1 = parseInt(date);
                         var x2 = parseInt(date) + parseInt(availability);
+                        console.log('x1:' + x1);
 
-                        var y1 = parseInt(consider.Date_);
-                        var y2 = parseInt(consider.Date_) + parseInt(consider.Availability);
+                        var consider_date = consider.Date_.split("-")[0];
+                        var y1 = parseInt(consider_date);
+                        var y2 = parseInt(consider_date) + parseInt(consider.Availability);
+                        console.log('y1:' + y1);
 
                         var e = Math.max(x1,y1);
                         var f = Math.min(x2,y2);
@@ -100,7 +105,6 @@ app.post('/add_person', function (req, res) {
                                     console.log("range is: " + e + " to " + f);
                                     startDate = e;
                                     endDate = f;
-
                                     compatible[index] = consider;
                                     index++;
                                 }
@@ -108,6 +112,7 @@ app.post('/add_person', function (req, res) {
                         }
                     } 
                 var param = {users: compatible, home: home, destination: destination, startDate: startDate, endDate: endDate};
+                console.log(param);
                 res.json(param);
                 db.close();
             });
