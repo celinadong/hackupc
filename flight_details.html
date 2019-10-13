@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>skyscanner</title>
+        <!-- <link href="style.css" rel="stylesheet" /> -->
+      <script src="script.js"></script>
+        <script src="cheapFlights.js"></script>
+        
+    </head>
+    
+    <body>
+        <script>
+          
+          // console.log(home)
+        var r = JSON.parse(window.localStorage.getItem('response'));
+
+        var home = r.home;
+        var dest = r.destination;
+        var stringStartDate = r.startDate.toString();
+        var stringEndDate = r.endDate.toString();
+
+        var start =
+          "2019-" +
+          stringStartDate[0] +
+          stringStartDate[1] +
+          "-" +
+          stringStartDate[2] +
+          stringStartDate[3];
+        var end =
+          "2019-" +
+          stringEndDate[0] +
+          stringEndDate[1] +
+          "-" +
+          stringEndDate[2] +
+          stringEndDate[3];
+          
+      </script>
+      <p id="search"></p>
+      <script>
+            var originCountry = "ES";
+            var origin = home;
+            var destination = dest;
+            var outDate = start;
+            var inDate = end;
+            console.log(dest,start,end)
+            // document.getElementById("search").innerHTML =
+            browseRoutes(originCountry, origin, destination, outDate, inDate).then(function (html) {
+              
+            })
+            
+        </script>
+    </body>
+</html>
