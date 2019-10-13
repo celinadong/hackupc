@@ -5,15 +5,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
   <body>
     <h1>
       Information Form
     </h1>
     <br />
+
+    
+
     <form id="frm1">
       Name
       <input type="Text" name="name" style="width:300px;" id="name"/><br/><br/>
@@ -42,6 +46,14 @@
     </button>
 
     <script>
+            function getVars(resp) {
+                var home = resp.home;
+                var dest = resp.destination;
+                var start = resp.startDate;
+                var end = resp.endDate;
+                alert(resp);
+            }
+
             function callWebAPI(url, parameters, func) {
                 return fetch(url, {
                     method: "POST",
@@ -59,7 +71,9 @@
               console.log(resp);
             }
 
-            function callAddPerson(url) {
+            function callAddPerson(url_path) {
+                var url = "http://localhost:5000" + url_path;
+
                 var name = document.getElementById("name").value;
                 var age = document.getElementById("age").value;
                 var language = document.getElementById("language").value;
@@ -72,17 +86,17 @@
                 //construct parameter object according to API Documentation.
                 var parameters = { Name: name, Age: age, Language: language, Home: home, Destination: destination, Date_: date, Availability: availability, Form_Id: form_id };
                 alert(JSON.stringify(parameters)); //debugging message
-
                 callWebAPI(url, parameters, callBack); //call the API
+                console.log("done with adding");
             }
 
-            function callMatchPerson(url) {
+            function callMatchPerson(url_path) {
+                var url = "http://localhost:5000" + url_path;
                 // name required to find his details and compare to others in database
                 var name = document.getElementById('name').value;
                 
                 var parameters = { Name: name };    
                 alert(JSON.stringify(parameters)); //debugging message
-
                 callWebAPI(url, parameters, callBack); //call the API 
             }
     </script>
