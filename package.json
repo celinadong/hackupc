@@ -1,0 +1,14 @@
+{
+  "name": "formation",
+  "version": "1.0.0",
+  "main": "formation.js",
+  "dependencies": {
+    "async": "2.0.0-rc.6",
+    "express": "^4.17.1",
+    "localtunnel": "^2.0.0",
+    "lodash": "4.13.x",
+    "mongodb": "2.2.x",
+    "request": "2.73.x",
+    "yargs": "4.8.x"
+  }
+}
